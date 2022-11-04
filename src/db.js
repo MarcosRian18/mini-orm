@@ -6,7 +6,13 @@ const client = new Client({
   database: 'PGpessoa',
   port: 5432,
 })
-client.connect(function(err){
-  if(err)throw err;
-  console.log("connected")
-})
+
+
+
+  client.connect(function(err){   //Fazendo conexão com o banco de dados!
+    if(err)throw err;
+      console.log("Banco Conectado com sucesso")
+}) 
+
+
+module.exports = client
