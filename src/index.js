@@ -1,21 +1,19 @@
-const {criarTabela, inserirDadosnaTabela} = require('./funcoes.js')
+const {criarTabela, inserirDadosnaTabela, selecionaTabela} = require('./funcoes.js')
 var obj = {
-  id: 'id SERIAL PRIMARY KEY',
-  nome: 'nome VARCHAR(50)',
-  cpf: 'cpf VARCHAR(20)',
-  idade: 'idade INTEGER',
-  possuifaculdade: 'Possuifaculdade BOOLEAN'
+  nome: 'VARCHAR(50)',
+  cpf: 'VARCHAR(20)',
+  idade: 'INTEGER',
+  possuifaculdade:  'BOOLEAN'
 }
 
 var obj2 = {
-  id: 0,
-  nome: 'Marcos',
+  nome: 'Silva',
   cpf: '70918467101',
   idade: 20,
   possuiFaculdade: true
 }
 
-criarTabela('wiltter', obj)
-// inserirDado('pessoa1', 'nome', 'JoãoCamaBox')
-inserirDadosnaTabela('wiltter', obj, obj2)
+criarTabela('testefinal4', obj)
+inserirDadosnaTabela('testefinal4', obj2)
+selecionaTabela('testefinal4','cpf')
 

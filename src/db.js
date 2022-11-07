@@ -7,8 +7,6 @@ const client = new Client({
   port: 5432,
 })
 
-
-
   client.connect(function(err){   //Fazendo conexão com o banco de dados!
     if(err)throw err;
       console.log("Banco Conectado com sucesso")
