@@ -4,8 +4,8 @@ const selecionaTabela = require('./src/selectTable');
 const client = require('./src/server');
 
 var obj = {
-  nome: 'VARCHAR(50)',
-  cpf: 'VARCHAR(50)',
+  nome: 'VARCHAR',
+  cpf: 'VARCHAR',
   idade: 'INTEGER',
   possuifaculdade: 'BOOLEAN',
 };
@@ -18,7 +18,7 @@ var obj2 = {
 };
 
 try {
-  criaTabela('tabe@la', obj);
+  criaTabela('tabela6', obj);
   // insereDadoNaTabela('tabela1', obj2);
 } catch (error) {
   console.error(error.message);

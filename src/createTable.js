@@ -7,6 +7,16 @@ function criaTabela(nametable, objeto) {
   const queryParam = columns.map((column, index) => {
     return `${column} ${values[index]}`;
   });
+
+  if (typeof nametable !== 'string' || typeof objeto !== 'object') {
+    throw new Error(
+      'Erro: nome da tabela invalido e o objeto não está correto!',
+    );
+  }
+  if (values.includes('VARCHAR()')) {
+    console.error('Não é possivel criar um VARCHAR() vazio');
+    process.exit(1);
+  }
   const regex = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
   if (regex.test(nametable) == true) {
     // console.error('Nome da tabela invalido!');
@@ -28,14 +38,7 @@ function criaTabela(nametable, objeto) {
   let query = `CREATE TABLE IF NOT EXISTS ${nametable}(${queryParam})`;
 
   client.query(query, (err, res) => {
-    if (err) {
-      // console.error(err);
-      throw new Error(
-        `Não foi possivel criar a tabela '${nametable}', por favor insira os dados corretamente! `,
-      );
-    } else {
-      console.log(`A tabela ${nametable} foi criada com sucesso!`);
-    }
+    console.log(`A tabela ${nametable} foi criada com sucesso!`);
   });
 }
 module.exports = criaTabela;
